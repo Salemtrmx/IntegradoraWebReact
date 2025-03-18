@@ -1,0 +1,110 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap");
+
+/* Estilos generales */
+body {
+  background: #ffffff !important;
+  font-family: "Open Sans", sans-serif;
+}
+
+/* Contenedor del menú */
+.navbar {
+  position: fixed;
+  top: 3rem;
+  left: 2rem;
+  background: #e2ffe2 !important;
+  border-radius: 10px;
+  padding: 1rem 0;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.03);
+  height: calc(100vh - 4rem);
+  z-index: 3;
+  background: rgba(255, 255, 255, .3);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  border: 1.5px solid rgba(209, 213, 219, 0.3);
+}
+
+/* Lista del menú */
+.navbar__menu {
+  list-style: none; /* Elimina los puntos de la lista */
+  padding: 0;
+  margin: 0;
+}
+
+/* Ítems del menú */
+.navbar__item {
+  position: relative;
+  width: 100%;
+  margin: 0;
+}
+
+/* Enlaces del menú */
+.navbar__link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centra el contenido horizontalmente */
+  height: 4.5rem;
+  width: 5.5rem; /* Ancho fijo */
+  color: #28523d;
+  text-decoration: none;
+  transition: 250ms ease all;
+  z-index: 1; /* Asegura que el enlace esté por encima del fondo azul */
+}
+
+/* Resetear estilos de los íconos */
+.navbar__link i {
+  margin: 0; /* Elimina el margen por defecto */
+  padding: 0; /* Elimina el padding por defecto */
+  display: flex; /* Asegura que el ícono esté centrado */
+  align-items: center;
+  justify-content: center;
+}
+
+/* Texto de los enlaces (se muestra al hacer hover) */
+.navbar__link span {
+  position: absolute;
+  left: 100%;
+  transform: translate(-3rem);
+  margin-left: 1rem;
+  opacity: 0;
+  pointer-events: none;
+  color: #24ac32;
+  background: #fff;
+  padding: 0.75rem;
+  transition: 250ms ease all;
+  border-radius: 17.5px;
+  white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+}
+
+/* Efecto hover en los enlaces */
+.navbar__link:hover {
+  color: #fff;
+}
+
+/* Muestra el texto al hacer hover o focus */
+.navbar:not(:hover) .navbar__link:focus span,
+.navbar__link:hover span {
+  opacity: 1;
+  transform: translate(0);
+}
+
+/* Fondo animado (círculo azul) */
+.navbar__item::before {
+  content: "";
+  position: absolute;
+  opacity: 0;
+  z-index: 0; /* Asegura que el fondo esté detrás del ícono */
+  top: 50%; /* Centra verticalmente */
+  left: 50%; /* Centra horizontalmente */
+  transform: translate(-50%, -50%); /* Ajusta el centrado */
+  width: 3.5rem;
+  height: 3.5rem;
+  background: #8ce695;
+  border-radius: 17.5px;
+  transition: 250ms cubic-bezier(1, 0.2, 0.1, 1.2) all;
+}
+
+/* Posicionamiento del fondo azul al hacer hover */
+.navbar__item:hover::before {
+  opacity: 1;
+}
